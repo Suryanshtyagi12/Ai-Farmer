@@ -1,0 +1,17 @@
+Task: Identify pests or diseases from a crop image and provide control measures.
+
+Inputs:
+- Crop Name: {crop_name} (optional)
+- Image: [Attached Image]
+
+Requirements:
+1. Identify visible symptoms based ON THE IMAGE ONLY.
+2. Provide possible disease or pest name.
+3. Suggest 1 organic control measure.
+4. Suggest 1 chemical control measure (with safety warning).
+5. If the image is blurry or symptoms aren't clear, say "The image is unclear. I can't be sure, but it looks like X. Please upload a clearer photo."
+6. Advisory Disclaimer: "Identify is based on visual patterns only."
+
+Output Format:
+- Short, concise sections.
+- Visual-first analysis.

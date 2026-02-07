@@ -1,0 +1,17 @@
+Task: Provide irrigation advice for a specific crop and condition.
+
+Inputs:
+- Crop: {crop}
+- Soil Type: {soil_type}
+- Water Availability: {water}
+- Location: {location} (optional)
+
+Requirements:
+1. Recommend the best irrigation method (e.g., Drip, Sprinkler, Furrow).
+2. Suggest frequency qualitatively (e.g., "Once every 3-4 days in peak heat").
+3. Suggest 2 water-saving practices.
+4. List common irrigation mistakes for this crop.
+
+Output Format:
+- Practical and actionable steps.
+- Simple language.

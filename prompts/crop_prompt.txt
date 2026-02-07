@@ -1,0 +1,20 @@
+Task: Recommend the top 3 crops for a farmer based on the provided location and conditions.
+
+Inputs:
+- Location: {location}
+- Season: {season}
+- Profit Priority: {priority}
+- Soil Type: {soil_type} (optional)
+- Water Availability: {water} (optional)
+
+Requirements:
+1. Recommend top 3 crops.
+2. For each crop, explain WHY it was chosen for this agro-climatic zone (conceptually).
+3. List 2-3 risk factors (e.g., pests, water stress, price volatility).
+4. Provide a confidence level (percentage).
+5. State your assumptions about the weather and soil if not provided.
+
+Output Format:
+- Use clear headings.
+- Use bullet points for readability.
+- Keep the language simple.
