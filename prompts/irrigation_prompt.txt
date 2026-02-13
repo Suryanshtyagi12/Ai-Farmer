@@ -7,20 +7,27 @@ Inputs:
 - Rainfall Pattern: {water}
 
 Requirements:
-1. Recommend the BEST irrigation method (Drip, Sprinkler, Furrow, Flood) with reasons why it's best for this crop and soil.
-2. Provide SPECIFIC irrigation timing:
-   - Best time of day (morning/evening)
-   - Critical growth stages when irrigation is most important
-3. Provide DETAILED irrigation frequency:
-   - How many times per week/month
-   - How much water per irrigation (in liters or hours)
-   - Adjust based on season and rainfall pattern
-4. Suggest a WEEKLY irrigation schedule (e.g., "Water on Monday, Thursday, Saturday mornings")
-5. List 2-3 water-saving practices specific to this crop
-6. Mention common irrigation mistakes to avoid
+1. Recommend the BEST irrigation method (Drip, Sprinkler, Furrow, Flood) with reasons.
+2. Provide SPECIFIC irrigation timing (Morning/Evening, Critical stages).
+3. Provide DETAILED irrigation frequency (e.g., "Every 3 days").
+4. List 1 Water-saving tip.
+5. Mention 1 Common mistake.
 
 Output Format:
-- Clear sections: Method, Timing, Frequency, Schedule, Tips, Mistakes
-- Practical and actionable
-- Simple language for farmers
-- Be specific with numbers and days
+### 1. Recommended Method
+[Method] - [Reason]
+
+### 2. Timing
+- Best Time: [Morning/Evening]
+- Critical Stage: [Stage]
+
+### 3. Frequency
+[Frequency details]
+
+### 4. Conservation Tip
+[Tip]
+
+### 5. Mistake to Avoid
+[Mistake]
+
+KEEP IT SHORT AND PRACTICAL. NO JARGON.

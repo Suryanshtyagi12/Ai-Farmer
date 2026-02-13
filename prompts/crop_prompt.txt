@@ -8,13 +8,21 @@ Inputs:
 - Water Availability: {water} (optional)
 
 Requirements:
-1. Recommend top 3 crops.
-2. For each crop, explain WHY it was chosen for this agro-climatic zone (conceptually).
-3. List 2-3 risk factors (e.g., pests, water stress, price volatility).
-4. Provide a confidence level (percentage).
-5. State your assumptions about the weather and soil if not provided.
+1. Recommend ONLY the top 3 crops.
+2. For EACH crop, provide:
+   a) Why suitable: 1-2 lines on suitability for this zone.
+   b) Best Known For: one of Yield / Profit / Water Efficiency.
+   c) Fertilizer Recommendation: Preferred type and simple usage stage (early/mid/late).
+3. Be CONCISE. No long explanations.
+4. If Soil/Water info is missing, state assumptions clearly.
 
 Output Format:
-- Use clear headings.
-- Use bullet points for readability.
-- Keep the language simple.
+### 1. [Crop Name]
+- **Why Suitable**: [Explanation]
+- **Best For**: [Yield/Profit/Efficiency]
+- **Fertilizer**: [Type] at [Stage]
+
+### 2. [Crop Name]
+...
+
+(Repeat for 3 crops)
