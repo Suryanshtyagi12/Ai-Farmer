@@ -11,8 +11,8 @@ class GeminiVisionClient:
             self.model = None
         else:
             genai.configure(api_key=api_key)
-            # Using 1.5-flash as it's the standard for vision tasks
-            self.model = genai.GenerativeModel('gemini-1.5-flash')
+            # Using Gemini Exp (experimental) - free and supports vision
+            self.model = genai.GenerativeModel('gemini-exp-1206')
 
     def get_vision_completion(self, prompt, image_data, system_instruction=None):
         if not self.model:

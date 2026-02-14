@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.language_handler import language_handler
 from utils.llm_groq_client import groq_client
-from utils.llm_gemini_vision_client import gemini_vision_client
+from utils.unified_vision_handler import unified_vision_handler
 from utils.image_handler import image_handler
 from utils.rule_based_fallbacks import get_crop_fallback, get_disease_fallback, get_irrigation_fallback
 from utils.voice_input_widget import voice_input_widget
@@ -243,13 +243,14 @@ elif mode == language_handler.get_text("disease"):
     if uploaded_file:
         image = image_handler.process_image(uploaded_file)
         st.image(image, caption="Crop Image", use_container_width=True)
-        if st.button("Identify (Gemini)"):
-            with st.spinner("Scanning..."):
+        if st.button("🔍 Analyze Crop Disease"):
+            with st.spinner("Analyzing with AI (trying multiple models)..."):
                 sys = load_prompt("system_prompt.txt") + f"\nRESPOND IN {st.session_state.lang}"
-                response = gemini_vision_client.get_vision_completion(
+                response, api_used = unified_vision_handler.get_vision_response(
                     load_prompt("disease_prompt.txt").format(crop_name="Unknown"),
                     image, system_instruction=sys
                 )
+                st.success(f"✅ Analysis complete (API: {api_used})")
                 st.markdown(response)
                 # Auto-play audio response
                 auto_play_audio(response[:300], st.session_state.lang)
@@ -461,12 +462,12 @@ else:
                     with st.spinner("Analyzing..." if st.session_state.lang == "en" else "विश्लेषण..."):
                         try:
                             sys = load_prompt("system_prompt.txt") + f"\nRESPOND IN {st.session_state.lang}"
-                            result = gemini_vision_client.get_vision_completion(
+                            result, api_used = unified_vision_handler.get_vision_response(
                                 load_prompt("disease_prompt.txt").format(crop_name="Unknown"),
                                 img, system_instruction=sys
                             )
                             st.session_state.messages.append({"role": "assistant", "content": result})
-                            st.success(result)
+                            st.success(f"✅ {result}\n\n_(API: {api_used})_")
                             auto_play_audio(result[:300], st.session_state.lang)
                         except Exception as e:
                             st.error(f"Error during analysis: {e}")
@@ -572,7 +573,7 @@ else:
                 auto_play_audio(fallback, st.session_state.lang)
         
         st.session_state.voice_step = "done"
-        st.rerun()
+        # Don't rerun immediately - let audio play and let user see the result
     
     # STEP 5: Done
     elif st.session_state.voice_step == "done":
